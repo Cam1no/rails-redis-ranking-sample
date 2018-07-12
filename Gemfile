@@ -97,3 +97,5 @@ group :development do
   gem 'dotenv-rails'
   gem 'metric_fu'
 end
+
+gem 'rubocop'
