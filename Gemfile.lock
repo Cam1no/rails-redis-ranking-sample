@@ -355,6 +355,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     sexp_processor (4.11.0)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -452,6 +454,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   selenium-webdriver
+  shoulda-matchers
   simplecov
   slim-rails
   slim_lint
