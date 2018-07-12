@@ -20,6 +20,21 @@ CREATE TABLE `ar_internal_metadata` (
   PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `articles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `articles` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL COMMENT 'userのid',
+  `title` varchar(255) NOT NULL COMMENT 'タイトル',
+  `content` text NOT NULL COMMENT '本文',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_articles_on_user_id` (`user_id`),
+  KEY `index_articles_on_title` (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -40,7 +55,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_email` (`email`),
   KEY `index_users_on_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,6 +68,7 @@ CREATE TABLE `users` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 INSERT INTO `schema_migrations` (version) VALUES
-('20180712124800');
+('20180712124800'),
+('20180712133435');
 
 
